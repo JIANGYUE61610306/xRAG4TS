@@ -20,13 +20,21 @@ We provide data pre-processing scripts in `data_scripts/`. You should run the fo
 where `--history_seq_len 288` is used to train the node feature network, and `--history_seq_len 12` is used to train the forecasting model. 
 
 ### Step 1, Train a Backbone (TransGTR) to obtain the prediction tokens. 
- 
+You can either run with TransGTR official code or use our modified version as well.
 
 ### Step 2, Run spatialencoder.py to obtain embeddings
-
+`python3 spatialencoder.py`
 
 ### Step 3, Run retriever.py for source semantic mapping
+`python3 retriever.py`
 
 ### Step 4, Run correlation_extract.py to obtain reasonle_hint for LLM module
+`python3 correlation_extract.py`
 
 ### Step 5, Use LLM_predictor and LLM_eva to train xRAG4TS
+
+`python3 LLaMa_predictor_training_transfer_nottingham_TransGTR.py`
+
+and then
+
+`python3 LLaMa_eva_transfer_nottingham_TransGTR.py`
